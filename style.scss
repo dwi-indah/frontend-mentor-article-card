@@ -1,0 +1,254 @@
+$clr-blue: hsl(214, 17%, 51%);
+$clr-dark-gray: hsl(217, 19%, 35%);
+$clr-gray: hsl(212, 23%, 69%);
+$clr-light-gray: hsl(210, 46%, 95%);
+
+// breakpoint
+$screen-mobile: 375px;
+$screen-tablet: 768px;
+$screen-desktop: 1200px;
+$screen-large-desktop: 1440px;
+
+// mixin
+@mixin min-responsive ($media) {
+    @media (min-width: $media) {
+        @content;
+    }
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 13px;
+
+    @include min-responsive($screen-desktop) {
+        font-size: 16px;
+    }
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    padding: 8%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    background: $clr-light-gray;
+    color: $clr-blue;
+
+    @include min-responsive($screen-desktop) {
+        padding: 5vw;
+    }
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    -ms-interpolation-mode: bicubic;
+    border-style: none;
+}
+
+.card {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: $clr-light-gray 0px 7px 29px 0px;
+
+    @include min-responsive($screen-desktop) {
+        flex-direction: row;
+        width: 800px;
+    }
+
+    &-image {
+        width: 100%;
+        height: 200px;
+
+        @include min-responsive($screen-desktop) {
+            width: 100%;
+            height: auto;
+        }
+
+        img {
+            border-radius: 12px 12px 0 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+
+            @include min-responsive($screen-desktop) {
+                border-radius: 12px 0 0 12px;
+                object-position: left;
+            }
+        }
+    }
+
+    &-content {
+        padding: 2rem 2rem 1rem;
+
+        @include min-responsive($screen-desktop) {
+            padding: 2rem;
+        }
+    }
+
+    &-title {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        font-weight: 700;
+        color: $clr-dark-gray;
+    }
+
+    &-desc {
+        margin: 1.2rem 0 1rem;
+    }
+
+    &-user {
+        position: relative;
+        transition: all 1s ease-in;
+
+        &.active {
+            .card-user-share {
+                display: block;
+                opacity: 1;
+            }
+
+            .card-user-button {
+                background: $clr-gray;
+
+                @include min-responsive($screen-desktop) {
+                    background-color: $clr-light-gray;
+                }
+
+                img {
+                    filter: brightness(5.5);
+
+                    @include min-responsive($screen-desktop) {
+                        filter: none;
+                    }
+                }
+            }
+        }
+
+        &-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 .5rem;
+        }
+
+        &-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &-image {
+            width: 40px;
+            height: 40px;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        &-name {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h4 {
+                font-weight: 700;
+                color: $clr-dark-gray;
+                font-size: 1rem;
+            }
+        }
+
+        &-button {
+            border: none;
+            outline: none;
+            padding: .5rem;
+            background: $clr-light-gray;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        &-share {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            background: $clr-dark-gray;
+            border-radius: 0 0 12px 12px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 -2rem -1rem;
+            padding: 2.3rem 2rem 0;
+            transition: all .5s ease-in;
+
+            @include min-responsive($screen-desktop) {
+                margin: 0;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                width: max-content;
+                height: max-content;
+                top: -70%;
+                left: 67%;
+            }
+
+            &Detail {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                position: relative;
+
+                @include min-responsive($screen-desktop) {
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 37px;
+                        left: 45%;
+                        border-left: 16px solid transparent;
+                        border-right: 16px solid transparent;
+                        border-top: 16px solid #48556a;
+                    }
+                }
+
+                p {
+                    display: inline;
+                    margin-right: .5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                }
+            }
+
+        }
+    }
+
+}
+
+.icon,
+button {
+    cursor: pointer;
+}
+
+.attribution {
+    text-align: center;
+
+    a {
+        color: $clr-dark-gray;
+    }
+}

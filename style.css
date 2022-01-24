@@ -1,0 +1,301 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 13px;
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  padding: 8%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  background: #ecf2f8;
+  color: #6d7f97;
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding: 5vw;
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  vertical-align: top;
+  -ms-interpolation-mode: bicubic;
+  border-style: none;
+}
+
+.card {
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #fff;
+  -webkit-box-shadow: #ecf2f8 0px 7px 29px 0px;
+          box-shadow: #ecf2f8 0px 7px 29px 0px;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 800px;
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+}
+
+@media (min-width: 1200px) {
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.card-image img {
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+@media (min-width: 1200px) {
+  .card-image img {
+    border-radius: 12px 0 0 12px;
+    -o-object-position: left;
+       object-position: left;
+  }
+}
+
+.card-content {
+  padding: 2rem 2rem 1rem;
+}
+
+@media (min-width: 1200px) {
+  .card-content {
+    padding: 2rem;
+  }
+}
+
+.card-title {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #48556a;
+}
+
+.card-desc {
+  margin: 1.2rem 0 1rem;
+}
+
+.card-user {
+  position: relative;
+  -webkit-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+}
+
+.card-user.active .card-user-share {
+  display: block;
+  opacity: 1;
+}
+
+.card-user.active .card-user-button {
+  background: #9eafc2;
+}
+
+@media (min-width: 1200px) {
+  .card-user.active .card-user-button {
+    background-color: #ecf2f8;
+  }
+}
+
+.card-user.active .card-user-button img {
+  -webkit-filter: brightness(5.5);
+          filter: brightness(5.5);
+}
+
+@media (min-width: 1200px) {
+  .card-user.active .card-user-button img {
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+
+.card-user-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 0 .5rem;
+}
+
+.card-user-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.card-user-image {
+  width: 40px;
+  height: 40px;
+}
+
+.card-user-image img {
+  border-radius: 50%;
+}
+
+.card-user-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card-user-name h4 {
+  font-weight: 700;
+  color: #48556a;
+  font-size: 1rem;
+}
+
+.card-user-button {
+  border: none;
+  outline: none;
+  padding: .5rem;
+  background: #ecf2f8;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.card-user-share {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  background: #48556a;
+  border-radius: 0 0 12px 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 -2rem -1rem;
+  padding: 2.3rem 2rem 0;
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+
+@media (min-width: 1200px) {
+  .card-user-share {
+    margin: 0;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    top: -70%;
+    left: 67%;
+  }
+}
+
+.card-user-shareDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+  .card-user-shareDetail::after {
+    content: '';
+    position: absolute;
+    top: 37px;
+    left: 45%;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 16px solid #48556a;
+  }
+}
+
+.card-user-shareDetail p {
+  display: inline;
+  margin-right: .5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.icon,
+button {
+  cursor: pointer;
+}
+
+.attribution {
+  text-align: center;
+}
+
+.attribution a {
+  color: #48556a;
+}
+/*# sourceMappingURL=style.css.map */
